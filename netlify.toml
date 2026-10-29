@@ -1,0 +1,16 @@
+# Netlify configuration for ERKINOV LOYIHASI (Static React + Vite Frontend)
+# Deploy FastAPI + PostgreSQL separately (e.g. Render, Railway, Fly.io, Neon)
+# and set VITE_API_BASE_URL in Netlify Site Settings -> Environment Variables.
+
+[build]
+  command = "cd frontend && npm install && npm run build"
+  publish = "frontend/dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA client-side routing fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
